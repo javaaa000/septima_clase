@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo</title>
+
+    <style>
+      *{
+        marging:0; padding:0 ;
+      }
+
+      div#miau{
+        widht: 800px;
+        margin: 0 auto;
+        backgorund: pink;
+      }
+
+      div#miau div{
+        border: 1px solid black;
+        width: calc(46% - 2px);
+        padding: 1%;
+        margin: 1%;
+        float: left;
+      }
+
+      div#miau div.destacado{
+        border: 5px solid black;
+        width: calc(96% - 2px);
+        padding: 1%;
+        margin: 1%;
+        float: left;
+      }
+
+      div#miau div.fin{
+        width: 100%;
+        clear: both;
+        background: darkorange;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="miau"></div>
+
+    <!-- <div id="miau"></div> -->
+    <!--clases se pueden repetir pero identidades no -->
+   
+    <script>
+
+      const trabajos = [
+        {
+          title: "Mi trabajo",
+          category: "UX",
+          photo: "https://picsum.photos/id/50/200/200",
+          description: "Hice este trabajo en este momento, para este curso"
+        },
+        {
+          title: "Mi trabajo",
+          category: "Industrial",
+          photo: "https://picsum.photos/id/25/200/200",
+          description: "Hice este trabajo en este momento, para este curso"
+        },
+        {
+          title: "Mi trabajo",
+          category: "destacado",
+          photo: "https://picsum.photos/id/5/200/200",
+          description: "Hice este trabajo en este momento, para este curso"
+        }
+      ];
+
+      const parrafos = document.querySelector("#miau");
+      trabajos.forEach((v) => {
+       
+        parrafos.innerHTML += `
+          <div class="${v.category}">
+            <h1>${v.title}</h1>
+            <img src="${v.photo}" />
+            <p>${v.description} </p>
+          </div>`;
+      })
+
+      parrafos.innerHTML += `<div class= "fin">Fin!!</div>`
+
+    </script>
+  </body>
+</html>
